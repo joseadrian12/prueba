@@ -1,0 +1,98 @@
+<app-menu></app-menu>
+
+<div class="container mt-4">
+
+  <h2 class="mb-4">
+    Dashboard
+  </h2>
+
+
+  <div
+    *ngIf="cargando"
+    class="alert alert-info">
+
+    Cargando información...
+
+  </div>
+
+
+  <div
+    *ngIf="error"
+    class="alert alert-danger">
+
+    {{ error }}
+
+  </div>
+
+
+  <div
+    class="row"
+    *ngIf="!cargando && !error">
+
+
+    <div class="col-md-4 mb-3">
+
+      <div class="card shadow-sm">
+
+        <div class="card-body text-center">
+
+          <h5 class="card-title">
+            Total de salas
+          </h5>
+
+          <h2>
+            {{ datos.totalSalas }}
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="col-md-4 mb-3">
+
+      <div class="card shadow-sm">
+
+        <div class="card-body text-center">
+
+          <h5 class="card-title">
+            Salas disponibles
+          </h5>
+
+          <h2>
+            {{ datos.salasDisponibles }}
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="col-md-4 mb-3">
+
+      <div class="card shadow-sm">
+
+        <div class="card-body text-center">
+
+          <h5 class="card-title">
+            Total de películas
+          </h5>
+
+          <h2>
+            {{ datos.totalPeliculas }}
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
