@@ -7,10 +7,14 @@ namespace CineApi.Repository
     public class DashboardRepository
     {
         private readonly CineContext _context;
+        private readonly SalaRepository _salaRepository;
 
-        public DashboardRepository(CineContext context)
+        public DashboardRepository(
+            CineContext context,
+            SalaRepository salaRepository)
         {
             _context = context;
+            _salaRepository = salaRepository;
         }
 
         public async Task<DashboardDto> ObtenerDatos()
@@ -21,22 +25,17 @@ namespace CineApi.Repository
             var totalPeliculas = await _context.Peliculas
                 .CountAsync(p => p.Estado == true);
 
-            var salas = await _context.SalasCine
-                .Where(s => s.Estado == true)
-                .ToListAsync();
 
-            int salasDisponibles = 0;
+            var disponibilidadSalas =
+                await _salaRepository
+                    .ObtenerDisponibilidadSalas();
 
-            foreach (var sala in salas)
-            {
-                var cantidadPeliculas = await _context.PeliculasSalasCine
-                    .CountAsync(p => p.IdSalaCine == sala.IdSala);
 
-                if (cantidadPeliculas < 3)
-                {
-                    salasDisponibles++;
-                }
-            }
+            var salasDisponibles =
+                disponibilidadSalas.Count(
+                    s => s.Mensaje == "Sala disponible"
+                );
+
 
             return new DashboardDto
             {

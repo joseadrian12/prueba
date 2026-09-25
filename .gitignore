@@ -1,19 +1,56 @@
-# .NET
+# ==============================
+# VISUAL STUDIO / .NET
+# ==============================
+
+.vs/
 **/bin/
 **/obj/
-.vs/
 
-# Angular / Node
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+TestResults/
+
+
+# ==============================
+# ANGULAR / NODE
+# ==============================
+
 **/node_modules/
 **/.angular/
 **/dist/
 
-# Visual Studio Code
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# ==============================
+# VS CODE
+# ==============================
+
 .vscode/
 
-# Logs
-*.log
 
-# Sistema
+# ==============================
+# ARCHIVOS TEMPORALES
+# ==============================
+
+*.tmp
+*.temp
+*.log
+*.cache
+
 .DS_Store
 Thumbs.db
+
+
+# ==============================
+# VARIABLES / CONFIG LOCAL
+# ==============================
+
+**/.env
+**/.env.*
+**/appsettings.Development.json

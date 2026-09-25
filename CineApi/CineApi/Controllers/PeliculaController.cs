@@ -1,11 +1,13 @@
 ﻿using CineApi.Models;
 using CineApi.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CineApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PeliculaController : ControllerBase
     {
         private readonly PeliculaService _service;

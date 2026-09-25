@@ -1,5 +1,6 @@
 ﻿using CineApi.Models;
 using CineApi.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace CineApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AsignacionController : ControllerBase
     {
         private readonly AsignacionService _service;
@@ -42,6 +44,7 @@ namespace CineApi.Controllers
 
             return Ok("Película asignada correctamente");
         }
+
         [HttpGet]
         public async Task<IActionResult> ObtenerAsignaciones()
         {

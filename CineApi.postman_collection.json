@@ -13,6 +13,16 @@
         {
           "name": "GetPeliculas",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "GET",
             "header": [],
             "url": {
@@ -33,6 +43,16 @@
         {
           "name": "GetPeliculaByFecha",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "GET",
             "header": [],
             "url": {
@@ -50,8 +70,7 @@
               "query": [
                 {
                   "key": "fecha",
-                  "value": "2026-09-23",
-                  "type": "text"
+                  "value": "2026-09-23"
                 }
               ]
             }
@@ -61,6 +80,16 @@
         {
           "name": "UpdatePelicula",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "PUT",
             "header": [],
             "body": {
@@ -91,6 +120,16 @@
         {
           "name": "DeletePelicula",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "DELETE",
             "header": [],
             "url": {
@@ -112,6 +151,16 @@
         {
           "name": "GetPeliculaByName",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "GET",
             "header": [],
             "url": {
@@ -129,8 +178,7 @@
               "query": [
                 {
                   "key": "nombre",
-                  "value": "Titanic",
-                  "type": "text"
+                  "value": "Titanic"
                 }
               ]
             }
@@ -140,6 +188,16 @@
         {
           "name": "CreatePelicula",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "POST",
             "header": [],
             "body": {
@@ -169,6 +227,16 @@
         {
           "name": "GetPeliculasById",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "GET",
             "header": [],
             "url": {
@@ -195,6 +263,16 @@
         {
           "name": "GetSalaDisponible",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "GET",
             "header": [],
             "url": {
@@ -212,8 +290,7 @@
               "query": [
                 {
                   "key": "nombre",
-                  "value": "Sala 2",
-                  "type": "text"
+                  "value": "Sala 2"
                 }
               ]
             }
@@ -221,10 +298,29 @@
           "response": []
         },
         {
-          "name": "GetSalas",
+          "name": "CreateSalas",
           "request": {
-            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
             "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Sala 7\",\r\n  \"estado\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "https://localhost:7047/api/Sala",
               "protocol": "https",
@@ -239,6 +335,77 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "UpdateSala",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Sala 8\",\r\n  \"estado\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7047/api/Sala/7",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7047",
+              "path": [
+                "api",
+                "Sala",
+                "7"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteSala",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7047/api/Sala/7",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7047",
+              "path": [
+                "api",
+                "Sala",
+                "7"
+              ]
+            }
+          },
+          "response": []
         }
       ]
     },
@@ -248,6 +415,16 @@
         {
           "name": "CreateAsignacionPeliculaSala",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "POST",
             "header": [],
             "body": {
@@ -280,6 +457,16 @@
             "disableBodyPruning": true
           },
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "GET",
             "header": [],
             "body": {
@@ -301,6 +488,52 @@
               "path": [
                 "api",
                 "Asignacion"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\r\n\r\nconst accessToken = response.token;\r\n\r\npm.globals.set(\"Jwt\", accessToken);\r\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"usuario\": \"admin\",\r\n  \"password\": \"1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7047/api/Auth/login",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7047",
+              "path": [
+                "api",
+                "Auth",
+                "login"
               ]
             }
           },
